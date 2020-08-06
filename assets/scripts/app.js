@@ -14,4 +14,5 @@ $(() => {
 
   // Plant
   $('#create-plant').on('submit', plantEvents.onCreatePlant)
+  $('#index-plants').on('click', plantEvents.onIndexPlants)
 })
