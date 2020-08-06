@@ -12,7 +12,6 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <img src="" alt="logo">
       <h1>plantiful</h1>
 
       <p id="message"></p>
@@ -41,6 +40,16 @@
           <input name="passwords[old]" placeholder="old password" type="password">
           <input name="passwords[new]" placeholder="new password" type="password">
           <button type="submit">change password</button>
+        </form>
+
+        <form id="create-plant">
+          <input name="plant[name]" placeholder="plant name (eg. swiss cheese plant)" type="text">
+          <input name="plant[scientificName]" placeholder="scientific name (eg. monstera deliciosa)" type="text">
+          <input name="plant[type]" placeholder="type (eg. evergreen tropical)" type="text">
+          <input name="plant[soil]" placeholder="soil preference (eg. well-draining soil)" type="text">
+          <input name="plant[sunlight]" placeholder="sunlight preference (eg. bright indirect)" type="text">
+          <input name="plant[water]" placeholder="watering & humidity (eg. water when top soil is dry, mist once a week in AM)" type="text">
+          <button type="submit">add new plant</button>
         </form>
 
       </div>
