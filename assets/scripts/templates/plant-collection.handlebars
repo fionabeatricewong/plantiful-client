@@ -1,0 +1,14 @@
+  {{#each plants as |plant|}}
+    {{log plant}}
+    <section data-id="{{plant.id}}">
+      <h4>
+        {{plant.name}}
+      </h4>
+      <h6>{{plant.scientificName}}</h6>
+      <h5>type: {{plant.type}}</h5>
+      <h5>soil: {{plant.soil}}</h5>
+      <h5>sunlight: {{plant.sunlight}}</h5>
+      <h5>water: {{plant.water}}</h5>
+    </section>
+
+  {{/each}}

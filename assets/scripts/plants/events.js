@@ -11,9 +11,17 @@ const onCreatePlant = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  api.signUp(formData)
+  api.createPlant(formData)
     .then(ui.createPlantSuccess)
     .catch(ui.createPlantFailure)
+}
+
+const onIndexPlants = function (event) {
+  event.preventDefault()
+
+  api.indexPlants()
+    .then(ui.indexPlantsSuccess)
+    .catch(ui.indexPlantsFailure)
 }
 
 // const onSignIn = function (event) {
@@ -46,7 +54,8 @@ const onCreatePlant = function (event) {
 // }
 
 module.exports = {
-  onCreatePlant
+  onCreatePlant,
+  onIndexPlants
   // onSignIn,
   // onSignOut,
   // onChangePassword

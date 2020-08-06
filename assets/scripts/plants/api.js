@@ -11,7 +11,21 @@ const createPlant = function (formData) {
     },
     url: config.apiUrl + '/plants',
     method: 'POST',
+    user: store.user,
     data: formData
+  })
+}
+
+const indexPlants = function () {
+  return $.ajax({
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    url: config.apiUrl + '/plants',
+    method: 'GET',
+    data: {
+      plant: []
+    }
   })
 }
 
@@ -45,5 +59,6 @@ const createPlant = function (formData) {
 // }
 //
 module.exports = {
-  createPlant
+  createPlant,
+  indexPlants
 }
