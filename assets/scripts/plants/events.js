@@ -6,6 +6,8 @@ const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 
 // Event Handler Functions:
+
+// CREATE (add new plant)
 const onCreatePlant = function (event) {
   event.preventDefault()
 
@@ -16,6 +18,7 @@ const onCreatePlant = function (event) {
     .catch(ui.createPlantFailure)
 }
 
+// GET/INDEX (see all plants)
 const onIndexPlants = function (event) {
   event.preventDefault()
 
@@ -24,16 +27,17 @@ const onIndexPlants = function (event) {
     .catch(ui.indexPlantsFailure)
 }
 
-// const onSignIn = function (event) {
-//   event.preventDefault()
-//   const form = event.target
-//   const formData = getFormFields(form)
-//
-//   api.signIn(formData)
-//     .then(ui.signInSuccess)
-//     .catch(ui.signInFailure)
-// }
-//
+const onDestroyPlant = function (event) {
+  event.preventDefault()
+
+  // get id for plant who's remove button was clicked
+  const plantId = $(event.target).data('id')
+  console.log('this is plantId:' + plantId)
+  api.destroyPlant(plantId)
+    .then(ui.destroyPlantSuccess)
+    .then(() => onIndexPlants(event))
+    .catch(ui.destroyPlantFailure)
+}
 // const onSignOut = function (event) {
 //   event.preventDefault()
 //
@@ -55,8 +59,6 @@ const onIndexPlants = function (event) {
 
 module.exports = {
   onCreatePlant,
-  onIndexPlants
-  // onSignIn,
-  // onSignOut,
-  // onChangePassword
+  onIndexPlants,
+  onDestroyPlant
 }

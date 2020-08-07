@@ -5,7 +5,6 @@ const showPlantsTemplate = require('../templates/plant-collection.handlebars')
 // const store = require('../store')
 
 const createPlantSuccess = (data) => {
-  console.log(`hi ${data.plants}`)
   const showPlantsHtml = showPlantsTemplate({ plants: data.plants })
   $('.content').append(showPlantsHtml)
 
@@ -28,9 +27,21 @@ const indexPlantsFailure = () => {
   $('#message').text('couldn\'t show all plants')
 }
 
+const destroyPlantSuccess = () => {
+  $('#message').text('bye plant!')
+  $('#content').hide()
+  $('#content').show()
+}
+
+const destroyPlantFailure = () => {
+  $('#message').text('still here!')
+}
+
 module.exports = {
   createPlantSuccess,
   createPlantFailure,
   indexPlantsSuccess,
-  indexPlantsFailure
+  indexPlantsFailure,
+  destroyPlantSuccess,
+  destroyPlantFailure
 }

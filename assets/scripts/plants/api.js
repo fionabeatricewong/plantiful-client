@@ -29,6 +29,16 @@ const indexPlants = function () {
   })
 }
 
+const destroyPlant = function (plantId) {
+  return $.ajax({
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    url: config.apiUrl + '/plants/' + plantId,
+    method: 'DELETE'
+  })
+}
+
 // const signIn = function (formData) {
 //   return $.ajax({
 //     url: config.apiUrl + '/sign-in',
@@ -60,5 +70,6 @@ const indexPlants = function () {
 //
 module.exports = {
   createPlant,
-  indexPlants
+  indexPlants,
+  destroyPlant
 }
