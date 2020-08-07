@@ -7,7 +7,6 @@ const store = require('../store')
 
 // Only show sign up and sign in on landing page:
 $('#authenticated').hide()
-$('#unauthenticated').show()
 
 // Sign Up:
 const signUpSuccess = function () {
@@ -17,8 +16,6 @@ const signUpSuccess = function () {
 }
 const signUpFailure = function () {
   $('#message').text('couldn\'t sign up! try again! we\'re rooting for you!')
-
-  $('form').trigger('reset')
 }
 
 // Sign In:
@@ -30,9 +27,10 @@ const signInSuccess = function (response) {
   $('form').trigger('reset')
 
   // Remove sign up and sign in options, show the rest:
-  $('#authenticated').show()
   $('#unauthenticated').hide()
+  $('#authenticated').show()
 }
+
 const signInFailure = function () {
   $('#message').text('couldn\'t sign in. do you need some encourage-mint?')
 }
@@ -43,8 +41,10 @@ const signOutSuccess = function () {
 
   // Show only sign up and sign in again:
   $('#unauthenticated').show()
-  $('#sign-up').show()
+  // $('#sign-up').show()
   $('#authenticated').hide()
+  // hide plant collection when signing back in after clicking see all plants and then signing out:
+  $('#content').hide()
 
   store.user = null
 }
