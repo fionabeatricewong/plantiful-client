@@ -12,9 +12,9 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#change-password').on('submit', authEvents.onChangePassword)
 
-  // Plant
+  // Plant Listeners:
   $('#create-plant').on('submit', plantEvents.onCreatePlant)
   $('#index-plants').on('click', plantEvents.onIndexPlants)
   $('.content').on('click', '.btn-danger', plantEvents.onDestroyPlant)
-  $('.update-plant').on('submit', '.save-changes', plantEvents.onUpdatePlant)
+  $('.content').on('submit', '.update-plant', plantEvents.onUpdatePlant)
 })
