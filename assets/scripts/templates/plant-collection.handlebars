@@ -1,21 +1,67 @@
   {{#each plants as |plant|}}
     {{log plant}}
-    <section data-id="{{plant.id}}">
-      {{#if plant}}
-        <h4>
-          {{plant.name}}
-        </h4>
-        <h6>{{plant.scientificName}}</h6>
-        <h5>type: {{plant.type}}</h5>
-        <h5>soil: {{plant.soil}}</h5>
-        <h5>sunlight: {{plant.sunlight}}</h5>
-        <h5>water: {{plant.water}}</h5>
+    <section class="plant-collection" data-id="{{plant.id}}">
 
-      <button type="button" class="btn btn-danger destroy-plant" data-id="{{plant._id}}">remove</button>
+      <h4>
+        {{plant.name}}
+      </h4>
+      <h6>{{plant.scientificName}}</h6>
+      <h5>type: {{plant.type}}</h5>
+      <h5>soil: {{plant.soil}}</h5>
+      <h5>sunlight: {{plant.sunlight}}</h5>
+      <h5>water: {{plant.water}}</h5>
 
-      {{else}}
-        You don't have plants yet!
-      {{/if}}
+<!-- Update Plant Button - Trigger Modal -->
+      <button class="update-plant" type="button" data-id="{{plant._id}}" data-toggle="modal" data-target="#updatePlant">update</button>
+
+<!-- Modal -->
+<!-- ** form placeholders aren't specific to each plant ** -->
+
+      <div class="modal fade" id="updatePlant" tabindex="-1" role="dialog" aria-labelledby="updatePlantLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">update plant</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" data-id="{{plant._id}}">
+
+              <p id="modal-message"></p>
+
+              <form class="update-plant" data-id="{{plant._id}}">
+                <h6>name:
+                  <input name="plant[name]" placeholder="{{plant.name}}" type="text">
+                </h6>
+                <h6>scientific name:
+                  <input name="plant[scientificName]" placeholder="{{plant.scientificName}}" type="text">
+                </h6>
+                <h6>type:
+                  <input name="plant[type]" placeholder="{{plant.type}}" type="text">
+                </h6>
+                <h6>soil:
+                  <input name="plant[soil]" placeholder="{{plant.soil}}" type="text">
+                </h6>
+                <h6>sunlight:
+                  <input name="plant[sunlight]" placeholder="{{plant.sunlight}}" type="text">
+                </h6>
+                <h6>water:
+                  <input name="plant[water]" placeholder="{{plant.water}}" type="text">
+                </h6>
+                <button type="submit" class="btn save-changes" data-id="{{plant._id}}">save changes</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Remove Plant Button -->
+    <button type="button" class="btn btn-danger destroy-plant" data-id="{{plant._id}}">remove</button>
+
     </section>
 
   {{/each}}
