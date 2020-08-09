@@ -16,4 +16,5 @@ $(() => {
   $('#create-plant').on('submit', plantEvents.onCreatePlant)
   $('#index-plants').on('click', plantEvents.onIndexPlants)
   $('.content').on('click', '.btn-danger', plantEvents.onDestroyPlant)
+  $('.update-plant').on('submit', '.save-changes', plantEvents.onUpdatePlant)
 })

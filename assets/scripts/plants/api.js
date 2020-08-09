@@ -11,6 +11,7 @@ const createPlant = function (formData) {
     },
     url: config.apiUrl + '/plants',
     method: 'POST',
+    // created plant belongs to signed-in user
     user: store.user,
     data: formData
   })
@@ -39,37 +40,20 @@ const destroyPlant = function (plantId) {
   })
 }
 
-// const signIn = function (formData) {
-//   return $.ajax({
-//     url: config.apiUrl + '/sign-in',
-//     method: 'POST',
-//     data: formData
-//   })
-// }
-//
-// const signOut = function () {
-//   return $.ajax({
-//     headers: {
-//       Authorization: 'Bearer ' + store.user.token
-//     },
-//     url: config.apiUrl + '/sign-out',
-//     method: 'DELETE'
-//   })
-// }
-//
-// const changePassword = function (formData) {
-//   return $.ajax({
-//     headers: {
-//       Authorization: 'Bearer ' + store.user.token
-//     },
-//     url: config.apiUrl + '/change-password',
-//     method: 'PATCH',
-//     data: formData
-//   })
-// }
-//
+const updatePlant = function (plantId, formData) {
+  return $.ajax({
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    url: config.apiUrl + '/plants/' + plantId,
+    method: 'PATCH',
+    data: formData
+  })
+}
+
 module.exports = {
   createPlant,
   indexPlants,
-  destroyPlant
+  destroyPlant,
+  updatePlant
 }

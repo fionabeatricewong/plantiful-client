@@ -10,7 +10,7 @@ const indexPlantsSuccess = (data) => {
   // if (plants === '') {
   //   $('#message').text('no plants in your collection yet!')
   // } else {
-  $('#message').text('look at all your plant babies!')
+  $('#message').text('look at all your plant babies! you\'re kale-ing it!')
   // Hide "outdated" plant collection:
   $('#content').empty()
   $('#content').append(showPlantsHtml)
@@ -19,13 +19,13 @@ const indexPlantsSuccess = (data) => {
 // }
 
 const indexPlantsFailure = () => {
-  $('#message').text('couldn\'t show all plants')
+  $('#message').text('couldn\'t show all plants. lettuce try again.')
 }
 
 const createPlantSuccess = (data) => {
   const showPlantsHtml = showPlantsTemplate({ plants: data.plants })
 
-  $('#message').text('new plant added to your collection!')
+  $('#message').text('aloe-lujah! new plant in collection!')
   $('#content').append(showPlantsHtml)
   // "refresh" and show content/index:
   //
@@ -34,17 +34,33 @@ const createPlantSuccess = (data) => {
 }
 
 const createPlantFailure = () => {
-  $('#message').text('couldn\'t add new plant!')
+  $('#message').text('couldn\'t add new plant! don\'t stop beleafing!')
 }
 
 const destroyPlantSuccess = () => {
-  $('#message').text('bye plant!')
+  $('#message').text('bye fleafa!')
   // $('#content').hide()
   // $('#content').show()
 }
 
 const destroyPlantFailure = () => {
-  $('#message').text('still here!')
+  $('#message').text('still here! can\'t leaf me that easily!')
+}
+
+const updatePlantSuccess = () => {
+  $('#message').text('plant updated! you grow girl!')
+
+  // Hide "outdated" plant collection:
+  // $('#content').hide()
+  // $('#content').empty()
+  // // ????
+  // $('#content').show()
+
+  $('form').trigger('reset')
+}
+
+const updatePlantFailure = () => {
+  $('#message').text('plant not updated! succ it up and try again.')
 }
 
 module.exports = {
@@ -53,5 +69,7 @@ module.exports = {
   indexPlantsSuccess,
   indexPlantsFailure,
   destroyPlantSuccess,
-  destroyPlantFailure
+  destroyPlantFailure,
+  updatePlantSuccess,
+  updatePlantFailure
 }
