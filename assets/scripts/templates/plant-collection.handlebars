@@ -12,12 +12,12 @@
       <h5>water: {{plant.water}}</h5>
 
 <!-- Update Plant Button - Trigger Modal -->
-      <button class="update-plant" type="button" data-id="{{plant._id}}" data-toggle="modal" data-target="#updatePlant">update</button>
+      <button class="update-plant" type="button" data-id="{{plant._id}}" data-toggle="modal" data-target="#updatePlant-{{plant._id}}">update</button>
 
 <!-- Modal -->
 <!-- ** form placeholders aren't specific to each plant ** -->
 
-      <div class="modal fade" id="updatePlant" tabindex="-1" role="dialog" aria-labelledby="updatePlantLabel" aria-hidden="true">
+      <div class="modal fade" id="updatePlant-{{plant._id}}" tabindex="-1" role="dialog" aria-labelledby="updatePlantLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -49,12 +49,11 @@
                 <h6>water:
                   <input name="plant[water]" placeholder="{{plant.water}}" type="text">
                 </h6>
-                <button type="submit" class="btn save-changes" data-id="{{plant._id}}">save changes</button>
+                <div class="modal-footer">
+                  <button type="submit" class="btn save-changes" data-id="{{plant._id}}">save changes</button>
+                </div>
               </form>
             </div>
-            <div class="modal-footer">
-
-          </div>
         </div>
       </div>
     </div>
