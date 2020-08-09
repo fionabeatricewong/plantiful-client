@@ -21,7 +21,6 @@ const signIn = function (formData) {
 }
 
 const signOut = function () {
-  console.log('hi')
   return $.ajax({
     headers: {
       Authorization: 'Bearer ' + store.user.token
