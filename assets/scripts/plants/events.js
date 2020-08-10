@@ -39,8 +39,8 @@ const onDestroyPlant = function (event) {
   // console.log('this is plantId:' + plantId)
   api.destroyPlant(plantId)
     .then(ui.destroyPlantSuccess)
-    // .then(() => onIndexPlants(event))
-    .then(api.indexPlants)
+    .then(() => onIndexPlants(event))
+    // .then(api.indexPlants)
     .catch(ui.destroyPlantFailure)
 }
 
@@ -55,8 +55,9 @@ const onUpdatePlant = function (event) {
 
   api.updatePlant(plantId, formData)
     .then(ui.updatePlantSuccess(plantId))
+    .then(() => onIndexPlants(event))
     // .then(ui.indexPlantsSuccess(formData))
-    .then(api.indexPlants(formData))
+    // .then(api.indexPlants(formData))
     .catch(ui.updatePlantFailure)
 }
 

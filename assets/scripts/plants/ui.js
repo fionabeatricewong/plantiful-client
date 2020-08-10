@@ -6,18 +6,28 @@ const showPlantsTemplate = require('../templates/plant-collection.handlebars')
 
 const indexPlantsSuccess = (data) => {
   const showPlantsHtml = showPlantsTemplate({ plants: data.plants })
+
   // if no plants in collection:
-  if (data.plants.length === 0) {
-    $('#message').text('no plants in your collection yet!')
-  } else {
-    $('#message').text('look at all your plant babies! you\'re kale-ing it!')
-  }
+  // if (data.plants.length === 0) {
+  //   $('#message').text('no plants in your collection yet!')
+  // } else {
+  //   $('#message').text('look at all your plant babies! you\'re kale-ing it!')
+  // }
 
   // Hide "outdated" plant collection:
   $('#content').empty()
   $('#content').append(showPlantsHtml)
   $('#content').show()
 }
+
+const indexPlantsSuccessMessages = () => {
+  // if no plants in collection:
+  // if (data.plants.length === 0) {
+  //   $('#message').text('no plants in your collection yet!')
+  // } else {
+  $('#message').text('look at all your plant babies! you\'re kale-ing it!')
+}
+// }
 
 const indexPlantsFailure = () => {
   $('#message').text('couldn\'t show all plants. lettuce try again.')
@@ -68,6 +78,7 @@ module.exports = {
   createPlantSuccess,
   createPlantFailure,
   indexPlantsSuccess,
+  indexPlantsSuccessMessages,
   indexPlantsFailure,
   destroyPlantSuccess,
   destroyPlantFailure,
