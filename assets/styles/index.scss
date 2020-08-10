@@ -18,6 +18,7 @@ button {
   border-width: thin;
   font-size: 16px;
   text-align: center;
+  // width: 50%;
 
   &:hover {
     background-color: $plantiful-font-color;
@@ -28,6 +29,58 @@ button {
 body {
   background-color: $background-color;
   margin: 2%;
+}
+
+.container {
+  margin: 20px auto;
+  width: 450px;
+}
+
+// .create-account,
+// .already-have-account {
+//   background: $plantiful-font-color;
+//   cursor: pointer;
+//   float: left;
+//   line-height: 40px;
+//   text-align: center;
+//   width: 50%;
+// }
+
+.sign-up,
+.sign-in {
+  // border: 2px solid $plantiful-font-color;
+  // cursor: pointer;
+  float: left;
+  height: 60px;
+  line-height: 40px;
+  text-align: center;
+  width: 50%;
+
+  &.unauth-form {
+    // background: $plantiful-font-color;
+    box-sizing: border-box;
+    clear: both;
+    cursor: pointer;
+    height: 400px;
+    padding: 40px;
+    width: 100%;
+    //width: 50%;
+  }
+}
+
+.input {
+  border: 2px lighter;
+  box-sizing: border-box;
+  font-size: 14px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 8px;
+  transition: .5s ease;
+  width: 100%;
+
+  &:focus {
+    border: 2px solid $plantiful-font-color;
+  }
 }
 
 div {
@@ -49,22 +102,22 @@ h1 {
   position: sticky;
 }
 
-.authenticated {
-  align-items: center;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  position: relative;
-}
-
-.unauthenticated {
-  align-items: center;
-  display: flex;
-  flex-flow: column wrap;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: relative;
-}
+// .authenticated {
+//   align-items: center;
+//   display: flex;
+//   flex-flow: column wrap;
+//   justify-content: center;
+//   position: relative;
+// }
+//
+// .unauthenticated {
+//   align-items: center;
+//   display: flex;
+//   flex-flow: column wrap;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   position: relative;
+// }
 
 #message {
   display: flex;
