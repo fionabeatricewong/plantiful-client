@@ -7,16 +7,17 @@ const showPlantsTemplate = require('../templates/plant-collection.handlebars')
 const indexPlantsSuccess = (data) => {
   const showPlantsHtml = showPlantsTemplate({ plants: data.plants })
   // if no plants in collection:
-  // if (plants === '') {
-  //   $('#message').text('no plants in your collection yet!')
-  // } else {
-  $('#message').text('look at all your plant babies! you\'re kale-ing it!')
+  if (data.plants.length === 0) {
+    $('#message').text('no plants in your collection yet!')
+  } else {
+    $('#message').text('look at all your plant babies! you\'re kale-ing it!')
+  }
+
   // Hide "outdated" plant collection:
   $('#content').empty()
   $('#content').append(showPlantsHtml)
   $('#content').show()
 }
-// }
 
 const indexPlantsFailure = () => {
   $('#message').text('couldn\'t show all plants. lettuce try again.')
@@ -47,16 +48,16 @@ const destroyPlantFailure = () => {
   $('#message').text('still here! can\'t leaf me that easily!')
 }
 
-const updatePlantSuccess = () => {
+const updatePlantSuccess = (plantId) => {
   $('#message').text('plant updated! you grow girl!')
 
-  // Hide "outdated" plant collection:
-  // $('#content').hide()
-  // $('#content').empty()
-  // // ????
-  // $('#content').show()
-
-  $('form').trigger('reset')
+  $(`#updatePlant-${plantId}`).modal('hide')
+  // Removing show class triggers fade out transition
+  $('.modal-backdrop').removeClass('show')
+  return new Promise(resolve => setTimeout(() => {
+    $('.modal-backdrop').remove()
+    resolve()
+  }, 150))
 }
 
 const updatePlantFailure = () => {
