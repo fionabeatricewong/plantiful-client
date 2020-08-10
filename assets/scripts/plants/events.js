@@ -24,7 +24,10 @@ const onIndexPlants = function (event) {
 
   api.indexPlants()
     .then(ui.indexPlantsSuccess)
+    // .then(ui.indexPlantsSuccessMessages)
     .catch(ui.indexPlantsFailure)
+
+  ui.indexPlantsSuccessMessages()
 }
 
 // DESTROY (remove selected plant)
@@ -36,7 +39,8 @@ const onDestroyPlant = function (event) {
   // console.log('this is plantId:' + plantId)
   api.destroyPlant(plantId)
     .then(ui.destroyPlantSuccess)
-    .then(() => onIndexPlants(event))
+    // .then(() => onIndexPlants(event))
+    .then(api.indexPlants)
     .catch(ui.destroyPlantFailure)
 }
 
@@ -45,15 +49,15 @@ const onUpdatePlant = function (event) {
   event.preventDefault()
 
   const plantId = $(event.target).data('id')
-  // console.log(plantId)
 
   const form = event.target
   const formData = getFormFields(form)
 
-  // api.updatePlant(plantId, formData)
-  //   .then(ui.updatePlantSuccess)
-  //   .then(() => onIndexPlants(event))
-  //   .catch(ui.updatePlantFailure)
+  api.updatePlant(plantId, formData)
+    .then(ui.updatePlantSuccess(plantId))
+    // .then(ui.indexPlantsSuccess(formData))
+    .then(api.indexPlants(formData))
+    .catch(ui.updatePlantFailure)
 }
 
 module.exports = {
