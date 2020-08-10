@@ -15,19 +15,19 @@ const onCreatePlant = function (event) {
   const formData = getFormFields(form)
   api.createPlant(formData)
     .then(ui.createPlantSuccess)
+    // pass in true to show createSuccess message
+    .then(() => onIndexPlants(event, true))
     .catch(ui.createPlantFailure)
 }
 
 // GET/INDEX (see all plants)
-const onIndexPlants = function (event) {
+// pass in hideMessage as argument so create/update/destroy messages show
+const onIndexPlants = function (event, hideMessage) {
   event.preventDefault()
 
   api.indexPlants()
-    .then(ui.indexPlantsSuccess)
-    // .then(ui.indexPlantsSuccessMessages)
+    .then((res) => ui.indexPlantsSuccess(res, hideMessage))
     .catch(ui.indexPlantsFailure)
-
-  ui.indexPlantsSuccessMessages()
 }
 
 // DESTROY (remove selected plant)
@@ -39,8 +39,8 @@ const onDestroyPlant = function (event) {
   // console.log('this is plantId:' + plantId)
   api.destroyPlant(plantId)
     .then(ui.destroyPlantSuccess)
-    .then(() => onIndexPlants(event))
-    // .then(api.indexPlants)
+    // pass in true to show destroySuccess message
+    .then(() => onIndexPlants(event, true))
     .catch(ui.destroyPlantFailure)
 }
 
@@ -55,9 +55,8 @@ const onUpdatePlant = function (event) {
 
   api.updatePlant(plantId, formData)
     .then(ui.updatePlantSuccess(plantId))
-    .then(() => onIndexPlants(event))
-    // .then(ui.indexPlantsSuccess(formData))
-    // .then(api.indexPlants(formData))
+    // pass in true to show updateSuccess message
+    .then(() => onIndexPlants(event, true))
     .catch(ui.updatePlantFailure)
 }
 
