@@ -11,6 +11,13 @@ $plantiful-font-color: #61ad6f;
   user-select: none;
 }
 
+.auth-btns {
+  margin: 2%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 button {
   background-color: $button-color;
   border: 0;
@@ -46,6 +53,9 @@ body {
 //   width: 50%;
 // }
 
+
+// form fields
+.create-plant,
 .sign-up,
 .sign-in {
   // border: 2px solid $plantiful-font-color;
@@ -68,6 +78,7 @@ body {
   }
 }
 
+// form field inputs for sign-up, sign-in, create plant
 .input {
   border: 2px lighter;
   box-sizing: border-box;
@@ -78,8 +89,31 @@ body {
   transition: .5s ease;
   width: 100%;
 
+  // &.create {
+  //   width: 50%;
+  // }
+
   &:focus {
+    // border of form field clicked on changes color:
     border: 2px solid $plantiful-font-color;
+  }
+}
+
+// change password form fields:
+.change-password,
+.sign-out {
+  border: 2px lighter;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 25px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 16px;
+  transition: .5s ease;
+  // width: 100%;
+
+  & .input-change-password {
+    font-size: 14px;
   }
 }
 
@@ -110,14 +144,14 @@ h1 {
 //   position: relative;
 // }
 //
-// .unauthenticated {
-//   align-items: center;
-//   display: flex;
-//   flex-flow: column wrap;
-//   flex-wrap: wrap;
-//   justify-content: center;
-//   position: relative;
-// }
+.unauthenticated {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
 
 #message {
   display: flex;
