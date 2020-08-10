@@ -17,18 +17,20 @@
       <p id="message"></p>
 
       <div class="unauthenticated" id="unauthenticated">
-        <form class="sign-up" id="sign-up">
+        <div class="container">
+          <form class="sign-up" id="sign-up">
+            <input name="credentials[email]" placeholder="e-mail" type="text">
+            <input name="credentials[password]" placeholder="password" type="password">
+            <input name="credentials[password_confirmation]" placeholder="confirm password" type="password">
+            <button type="submit">sign up</button>
+          </form>
+
+          <form class="sign-in" id="sign-in">
           <input name="credentials[email]" placeholder="e-mail" type="text">
           <input name="credentials[password]" placeholder="password" type="password">
-          <input name="credentials[password_confirmation]" placeholder="confirm password" type="password">
-          <button type="submit">sign up</button>
-        </form>
-
-        <form class="sign=in" id="sign-in">
-        <input name="credentials[email]" placeholder="e-mail" type="text">
-        <input name="credentials[password]" placeholder="password" type="password">
-        <button type="submit">sign in</button>
-      </form>
+          <button type="submit">sign in</button>
+          </form>
+        </div>
       </div>
 
       <div class="authenticated" id="authenticated">
