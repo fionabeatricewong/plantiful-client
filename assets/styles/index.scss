@@ -4,6 +4,7 @@ $background-color: #dbffe2;
 $button-color: #aee8bb;
 $hover-font-color: #fff;
 $plantiful-font-color: #61ad6f;
+$text-color: #000;
 
 * {
   font-weight: lighter;
@@ -12,7 +13,7 @@ $plantiful-font-color: #61ad6f;
 }
 
 .auth-btns {
-  margin: 2%;
+  margin: .5%;
   position: absolute;
   right: 0;
   top: 0;
@@ -38,9 +39,27 @@ body {
   margin: 2%;
 }
 
+// change password form fields:
+.change-password,
+.sign-out {
+  border: 2px lighter;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 25px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 16px;
+  transition: .5s ease;
+  // width: 100%;
+
+  & .input-change-password {
+    font-size: 14px;
+  }
+}
+
 .container {
   margin: 20px auto;
-  width: 450px;
+  width: 700px;
 }
 
 // .create-account,
@@ -53,29 +72,55 @@ body {
 //   width: 50%;
 // }
 
-
-// form fields
-.create-plant,
-.sign-up,
-.sign-in {
-  // border: 2px solid $plantiful-font-color;
-  // cursor: pointer;
+.column {
+  // display: flex;
+  // flex-flow: row nowrap;
   float: left;
-  height: 60px;
-  line-height: 40px;
-  text-align: center;
+  padding: 10px;
   width: 50%;
+}
 
-  &.unauth-form {
-    // background: $plantiful-font-color;
-    box-sizing: border-box;
-    clear: both;
-    cursor: pointer;
-    height: 400px;
-    padding: 40px;
-    width: 100%;
-    //width: 50%;
+.create-plant {
+  margin-left: 200px;
+  width: 50%;
+}
+
+.destroy-plant, {
+  background-color: $button-color;
+  border: 0;
+  border-radius: 8px;
+  border-width: thin;
+  color: $text-color;
+  font-size: 16px;
+  font-weight: lighter;
+  margin: 3px 3px 4px 6px;
+  padding: 1px 6px;
+  text-align: center;
+}
+
+div {
+  padding: 10px;
+
+  > form {
+    padding: 10px;
   }
+  }
+
+form {
+  border: 0;
+}
+
+h1 {
+  color: $plantiful-font-color;
+  font-weight: lighter;
+  letter-spacing: 15px;
+  position: sticky;
+}
+
+#index-plants {
+  margin: 15px;
+  margin-bottom: 5px;
+  margin-left: 225px;
 }
 
 // form field inputs for sign-up, sign-in, create plant
@@ -99,41 +144,73 @@ body {
   }
 }
 
-// change password form fields:
-.change-password,
-.sign-out {
-  border: 2px lighter;
-  box-sizing: border-box;
-  font-size: 14px;
-  line-height: 25px;
-  margin-bottom: 20px;
-  outline: none;
-  padding: 16px;
-  transition: .5s ease;
-  // width: 100%;
-
-  & .input-change-password {
-    font-size: 14px;
+@media screen and (max-width: 800px) {
+  .column {
+    width: 100%;
   }
 }
 
-div {
-  padding: 10px;
-
-  > form {
-    padding: 10px;
-  }
-  }
-
-form {
-  border: 0;
+#message {
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  letter-spacing: 2px;
+  margin: 20px;
 }
 
-h1 {
+::placeholder {
   color: $plantiful-font-color;
-  font-weight: lighter;
-  letter-spacing: 15px;
-  position: sticky;
+}
+
+.plant-collection {
+  background: $hover-font-color;
+  border: .1px;
+  border-color: $plantiful-font-color;
+  border-radius: 8px;
+  border-style: solid;
+  margin: 10px;
+  margin-left: 150px;
+  padding: 5px;
+  position: relative;
+  width: 50%;
+
+  & h5,
+  h6 {
+    font-size: 18px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+}
+
+.sign-up {
+  float: left;
+  height: 60px;
+  line-height: 40px;
+  text-align: center;
+  width: 100%;
+}
+
+.sign-in {
+  // border: 2px solid $plantiful-font-color;
+  // cursor: pointer;
+  float: left;
+  height: 60px;
+  line-height: 40px;
+  text-align: center;
+  width: 100%;
+
+
+  &.unauth-form {
+    // background: $plantiful-font-color;
+    box-sizing: border-box;
+    clear: both;
+    cursor: pointer;
+    height: 400px;
+    padding: 40px;
+    width: 100%;
+    //width: 50%;
+  }
 }
 
 // .authenticated {
@@ -145,19 +222,11 @@ h1 {
 // }
 //
 .unauthenticated {
-  align-items: center;
-  display: flex;
-  flex-flow: column wrap;
-  flex-wrap: wrap;
+  display: table;
   justify-content: center;
   position: relative;
 }
 
-#message {
-  display: flex;
-  justify-content: center;
-}
-
-::placeholder {
-  color: $plantiful-font-color;
+.update-plant {
+  margin-left: 45px;
 }
