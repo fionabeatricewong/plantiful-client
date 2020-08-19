@@ -2,7 +2,6 @@
 
 // Require:
 const showPlantsTemplate = require('../templates/plant-collection.handlebars')
-// const store = require('../store')
 
 const indexPlantsSuccess = (data, hideMessage) => {
   const showPlantsHtml = showPlantsTemplate({ plants: data.plants })

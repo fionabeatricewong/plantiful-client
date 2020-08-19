@@ -36,7 +36,6 @@ const onDestroyPlant = function (event) {
 
   // get id for plant who's remove button was clicked
   const plantId = $(event.target).data('id')
-  // console.log('this is plantId:' + plantId)
   api.destroyPlant(plantId)
     .then(ui.destroyPlantSuccess)
     // pass in true to show destroySuccess message

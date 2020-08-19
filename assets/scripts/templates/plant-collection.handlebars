@@ -1,5 +1,4 @@
   {{#each plants as |plant|}}
-    {{log plant}}
     <section class="plant-collection" data-id="{{plant.id}}">
 
       <h5>
@@ -12,7 +11,7 @@
       <h6>water: {{plant.water}}</h6>
 
 <!-- Update Plant Button - Trigger Modal -->
-      <button class="update-plant" type="button" data-id="{{plant._id}}" data-toggle="modal" data-target="#updatePlant-{{plant._id}}">update</button>
+      <button class="update-plant" type="button" data-toggle="modal" data-target="#updatePlant-{{plant._id}}">update</button>
 
 <!-- Modal -->
 
@@ -25,7 +24,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body" data-id="{{plant._id}}">
+            <div class="modal-body">
 
               <p id="modal-message"></p>
 
@@ -49,7 +48,7 @@
                   <input name="plant[water]" placeholder="{{plant.water}}" type="text">
                 </h6>
                 <div class="modal-footer">
-                  <button type="submit" class="btn save-changes" data-id="{{plant._id}}">save changes</button>
+                  <button type="submit" class="btn save-changes">save changes</button>
                 </div>
               </form>
             </div>
