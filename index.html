@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>plantiful</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="icons8-potted-plant-16.png">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <!-- <script>
+        $(document).ready(function(){
+          $('.sign-in').hide()
+          $('.already-have-account').css("background", "none")
+        })
+      </script> -->
+    </head>
+    <body>
+      <h1>plantiful</h1>
+
+      <p id="message"></p>
+
+      <div class="unauthenticated container" id="unauthenticated">
+        <!-- <div class="create-account">create an account</div>
+        <div class="already-have-account">sign in</div> -->
+
+        <!-- sign up form and button -->
+        <div class="column">
+          <form class="sign-up unauth-form" id="sign-up">
+            <input name="credentials[email]" placeholder="e-mail" type="text" class="input">
+            <input name="credentials[password]" placeholder="password" type="password" class="input">
+            <input name="credentials[password_confirmation]" placeholder="confirm password" type="password" class="input"><br>
+            <button type="submit">sign up</button>
+          </form>
+      </div>
+
+        <!-- sign in form and button -->
+        <div class="column">
+          <form class="sign-in unauth-form" id="sign-in">
+          <input name="credentials[email]" placeholder="e-mail" type="text" class="input">
+          <input name="credentials[password]" placeholder="password" type="password" class="input"><br>
+          <button type="submit">sign in</button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="authenticated" id="authenticated">
+        <div class="auth-btns">
+
+          <!-- change password form and button -->
+          <form class="change-password btn" id="change-password">
+            <input name="passwords[old]" placeholder="old password" type="password" class="input-change-password">
+            <input name="passwords[new]" placeholder="new password" type="password" class="input-change-password">
+            <button type="submit">change password</button>
+          </form>
+
+          <!-- sign out button -->
+          <form class="sign-out btn" id="sign-out">
+            <button type="submit">sign out</button>
+          </form>
+
+        </div>
+        <div class="column">
+          <form class="create-plant" id="create-plant">
+            <input name="plant[name]" placeholder="plant name (eg. snake plant)" type="text" class="input"><br>
+            <input name="plant[scientificName]" placeholder="scientific name (eg. Dracaena trifasciata)" type="text" class="input"><br>
+            <input name="plant[type]" placeholder="type (eg. succulent)" type="text" class="input"><br>
+            <input name="plant[soil]" placeholder="soil preference (eg. cactus soil)" type="text" class="input"><br>
+            <input name="plant[sunlight]" placeholder="sunlight preference (eg. indirect sunlight)" type="text" class="input"><br>
+            <input name="plant[water]" placeholder="watering & humidity (eg. water once a week in AM)" type="text" class="input"><br>
+            <button id="add-plant" type="submit">add new plant</button>
+          </form>
+        </div>
+
+        <main>
+          <div class="column">
+            <button id="index-plants">see all plants</button>
+            <div id="content" class="content"></div>
+          </div>
+        </main>
+
+      </div>
+
+    </body>
+</html>
